@@ -1,0 +1,30 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While compiling python block starting at line 303 of game/scripts/battle.rpy.
+TypeError: required field "type_ignores" missing from Module
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/bootstrap.py", line 277, in bootstrap
+    renpy.main.main()
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/main.py", line 490, in main
+    renpy.game.script.load_script() # sets renpy.game.script.
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/script.py", line 297, in load_script
+    self.load_appropriate_file(".rpyc", ".rpy", dir, fn, initcode)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/script.py", line 809, in load_appropriate_file
+    self.finish_load(stmts, initcode, filename=lastfn) # type: ignore
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/script.py", line 481, in finish_load
+    self.update_bytecode()
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/script.py", line 863, in update_bytecode
+    code = renpy.python.py_compile_exec_bytecode(i.source, filename=i.location[0], lineno=i.location[1], py=i.py)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/python.py", line 1031, in py_compile_exec_bytecode
+    code = py_compile(source, 'exec', cache=False, **kwargs)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/python.py", line 914, in py_compile
+    return compile(source, filename, mode)
+TypeError: required field "type_ignores" missing from Module
+
+Linux-5.15.0-52-generic-x86_64-with-glibc2.35 x86_64
+Ren'Py 8.0.3.22090809
+HERO 1.0
+Mon Nov  7 01:38:18 2022

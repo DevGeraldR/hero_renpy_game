@@ -34,10 +34,10 @@ label hero_skill:
     if skill == "Punch":
         call hero_skill_animation
         if d10 >= 8:
-            $ hero_attack_value = d4 + d6
+            $ hero_attack_value = d4 + d6 + 20
             $ target_hp -= hero_attack_value
         else:
-            $ target_hp -= d4
+            $ target_hp -= d4 + 20
     elif skill == "Super Duper Punch": 
         call hero_skill_animation          
         if d10 >= 9:    
@@ -121,7 +121,7 @@ label hero_skill_animation:
             yalign 0.7
 
         # Show animation when target hit
-
+        
         show enemy_1 hit
 
     elif level >= 2:
@@ -130,9 +130,19 @@ label hero_skill_animation:
         # Self target means heal
 
         if target == "self":
+
+            # Play sound heal
+
+            play sound "../audio/heal_sound.ogg"
+
             show hero heal with dissolve:
                 xalign 0.2
                 yalign 0.7
+
+            show hero stand with dissolve:
+                xalign 0.2
+                yalign 0.7
+            return
         
         elif target == "enemy_2_1":
             show hero attack with dissolve:
@@ -160,6 +170,11 @@ label hero_skill_animation:
                 yalign 0.75
             show enemy_3_3 hit
             
+    
+
+    # Play sound hit
+
+    play sound "../audio/attack_sound.ogg"
 
     # Go back to the standing position
 
@@ -190,6 +205,10 @@ label enemy_attack:
 
         elif d20 <=2:
 
+            # Play sound heal
+
+            play sound "../audio/heal_sound.ogg"
+
             # Toisplay healing animation
 
             show enemy_1 heal with dissolve
@@ -201,7 +220,7 @@ label enemy_attack:
 
             # To hide healing animation
 
-            show enemy_1 stand with dissolve
+            show enemy_1 stand
 
         else:
             call enemy_attack_animation                                                                                
@@ -217,9 +236,13 @@ label enemy_attack:
 
             elif d20 <=2:
 
+                # Play sound heal
+
+                play sound "../audio/heal_sound.ogg"
+
                 # To display healing animation
 
-                show enemy_2_1 heal
+                show enemy_2_1 heal with dissolve
 
                 if d4 + enemy_2_1.hp > enemy_2_1.max_hp:
                     $ enemy_2_1.hp = enemy_2_1.max_hp
@@ -239,6 +262,10 @@ label enemy_attack:
                 call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
+
+                # Play sound heal
+
+                play sound "../audio/heal_sound.ogg"
 
                 # To display healing animation
 
@@ -263,6 +290,10 @@ label enemy_attack:
                 $ hero.hp -= d10
             elif d20 <=2:
 
+                # Play sound heal
+
+                play sound "../audio/heal_sound.ogg"
+
                 # To display healing animation
 
                 show enemy_3_1 heal with dissolve
@@ -286,6 +317,10 @@ label enemy_attack:
                 $ hero.hp -= d10
             elif d20 <=2:
 
+                # Play sound heal
+
+                play sound "../audio/heal_sound.ogg"
+
                 # To display healing animation
 
                 show enemy_3_2 heal with dissolve
@@ -308,6 +343,10 @@ label enemy_attack:
                 call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
+
+                # Play sound heal
+
+                play sound "../audio/heal_sound.ogg"
 
                 # To display healing animation
 
@@ -335,50 +374,96 @@ label enemy_attack_animation:
     # Go back after execution of attack
 
     if enemy == "enemy_1":
+
         show enemy_1 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+
         show enemy_1 stand with dissolve:
             xalign 0.8 
             yalign 0.7
+
     elif enemy == "enemy_2_1":
+
         show enemy_2_1 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+
         show enemy_2_1 stand with dissolve:
             xalign 0.8 
             yalign 0.6
+
     elif enemy == "enemy_2_2":
+
         show enemy_2_2 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+
         show enemy_2_2 stand with dissolve:
             xalign 0.8 
             yalign 0.9
+
     elif enemy == "enemy_3_1":
+
         show enemy_3_1 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+
         show enemy_3_1 stand with dissolve:
             xalign 0.8 
             yalign 0.6
+
     elif enemy == "enemy_3_2":
+
         show enemy_3_2 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+        
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+        
         show enemy_3_2 stand with dissolve:
             xalign 0.8 
             yalign 0.9
     elif enemy == "enemy_3_3":
+
         show enemy_3_3 attack with dissolve:
             xalign 0.2
             yalign 0.7
+
         show hero hit
+
+        # Play sound hit
+
+        play sound "../audio/attack_sound.ogg"
+        
         show enemy_3_3 stand with dissolve:
             xalign 0.9 
             yalign 0.75

@@ -14,7 +14,7 @@ label level_1:
     # Show level intro and life bars
 
     call show_level
-    show screen hp_bars
+    show screen hp_bars_1v1
     
     # Show characters
 
@@ -41,9 +41,14 @@ label level_1:
         # Jump to the game_manager for assigning of next level     
 
         if enemy_1.hp <= 0:
-            "You win the combat encounter!"
+            stop music
+
+            # Play sound lvlup
+
+            play sound "../audio/lvlup_sound.ogg"
+
+            "You win the combat encounter! Click to go to next level"
             $ level += 1
-            $ is_from = "Level"
             jump game_manager
         
         # Enemy Turn
@@ -51,6 +56,7 @@ label level_1:
         call enemy_attack
 
     # If failed display the end_menu
+    stop music
     hide hero stading with dissolve
     "You died..."
     jump end_menu
@@ -72,7 +78,7 @@ label level_2:
     # Show level intro and life bars
 
     call show_level
-    show screen hp_bars
+    show screen hp_bars_1v2
 
     # Show characters
 
@@ -119,9 +125,14 @@ label level_2:
             # If player win jump to game_manager to assign to the next level           
 
             if enemy_2_1.hp <= 0 and enemy_2_2.hp <= 0:
-                "You win the combat encounter!"
+                stop music
+
+                # Play sound lvlup
+
+                play sound "../audio/lvlup_sound.ogg"
+
+                "You win the combat encounter! Click to go to next level"
                 $ level += 1
-                $ is_from = "Level"
                 jump game_manager
 
         # Reformat target
@@ -143,6 +154,7 @@ label level_2:
             $ enemies_turn += 1
 
     # If failed display the end_menu
+    stop music
     hide hero stading with dissolve
     "You died..."
     jump end_menu
@@ -167,7 +179,7 @@ label level_3:
     # Show level intro and life bars
 
     call show_level
-    show screen hp_bars
+    show screen hp_bars_1v3
 
     # Show characters
 
@@ -220,9 +232,23 @@ label level_3:
             # If player win jump to game_manager to assign to the next level           
 
             if enemy_3_1.hp <= 0 and enemy_3_2.hp <= 0 and enemy_3_3.hp <= 0 :
-                "You beat the game!"
-                "Congratulations"
+                
+                stop music
+
+                # Play sound final level beated
+
+                play sound "../audio/final_win_sound.ogg"
+
+                "Congratulations you beat the game!"
+
+                # To go to start menu
+                # For background and music
+
+                scene intro_bg
+                play music "../audio/intro_music.ogg"
+
                 $ level = 1
+
                 jump start_menu
 
         # Reformat target
@@ -247,6 +273,7 @@ label level_3:
             $ enemies_turn += 1
 
     # If failed display the end_menu
+    stop music
     hide hero stading with dissolve
     "You died..."
     jump end_menu   
@@ -273,7 +300,7 @@ label dice_roll:
 
 #For life bars
 
-screen hp_bars:
+screen hp_bars_1v1:
     frame:
         xpadding 10
         ypadding 10
@@ -293,23 +320,63 @@ screen hp_bars:
         xmaximum 600
         vbox:
             spacing 20
-            if level == 1 and enemy_1.alive:
-                text "Enemy 1"
-                bar value enemy_1.hp range enemy_1.max_hp
-            if level == 2:
-                if enemy_2_1.alive: 
-                    text "Enemy 1"
-                    bar value enemy_2_1.hp range enemy_2_1.max_hp
-                if enemy_2_2.alive: 
-                    text "Enemy 2"
-                    bar value enemy_2_2.hp range enemy_2_2.max_hp
-            if level == 3:
-                if enemy_3_1.alive: 
-                    text "Enemy 1"
-                    bar value enemy_3_1.hp range enemy_3_1.max_hp
-                if enemy_3_2.alive: 
-                    text "Enemy 2"
-                    bar value enemy_3_2.hp range enemy_3_2.max_hp
-                if enemy_3_3.alive: 
-                    text "Enemy 3"
-                    bar value enemy_3_3.hp range enemy_3_3.max_hp
+            text "Fire Enemy"
+            bar value enemy_1.hp range enemy_1.max_hp
+
+screen hp_bars_1v2:
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.1
+        yalign 0.05
+        xmaximum 600
+        vbox:
+            spacing 20
+            text "You"
+            bar value hero.hp range hero.max_hp
+    
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.9
+        yalign 0.05
+        xmaximum 600
+        vbox:
+            spacing 20
+            if enemy_2_1.alive: 
+                text "Ice Enemy 1"
+                bar value enemy_2_1.hp range enemy_2_1.max_hp
+            if enemy_2_2.alive: 
+                text "Ice Enemy 2"
+                bar value enemy_2_2.hp range enemy_2_2.max_hp
+
+screen hp_bars_1v3:
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.1
+        yalign 0.05
+        xmaximum 600
+        vbox:
+            spacing 20
+            text "You"
+            bar value hero.hp range hero.max_hp
+    
+    frame:
+        xpadding 10
+        ypadding 10
+        xalign 0.9
+        yalign 0.05
+        xmaximum 600
+        vbox:
+            spacing 20
+            if enemy_3_1.alive: 
+                text "Forest Enemy 1"
+                bar value enemy_3_1.hp range enemy_3_1.max_hp
+            if enemy_3_2.alive: 
+                text "Forest Enemy 2"
+                bar value enemy_3_2.hp range enemy_3_2.max_hp
+            if enemy_3_3.alive: 
+                text "Forest Enemy 3"
+                bar value enemy_3_3.hp range enemy_3_3.max_hp
+    

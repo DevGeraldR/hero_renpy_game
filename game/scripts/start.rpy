@@ -1,19 +1,20 @@
 label start:
 
-    # For background
+    # For background image and music
     scene intro_bg
+    play music "../audio/intro_music.ogg"
 
     # Create hero
 
     $ hero = character("Hero", 20, 20)
     $ hero.hp = hero.max_hp
     $ hero_attack_value = 0
-    $ level = 1
+    $ level = 3
 
     # For start menu. "is_from" is use for controling the game_manager
     menu start_menu: 
         "Start":
-            $ is_from = "Start_menu"
+            stop music
             jump game_manager
         "Reset level":
             $ level = 1
@@ -24,10 +25,12 @@ label start:
 
     menu end_menu:
         "Play this level again?":
-            $ is_from = "Play Again"
             jump game_manager
         "Back to Main Menu":
-            $ is_from = "Back to Main Menu"
-            jump game_manager
+            # For background and music
+            scene intro_bg
+            play music "../audio/intro_music.ogg"
+
+            jump start_menu
 
     return

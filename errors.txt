@@ -2,11 +2,29 @@
 errors listed below, and try again.
 
 
-The label start is defined twice, at File "game/script.rpy", line 11:
-label start:
-and File "game/scripts/start.rpy", line 1:
-label start:
+File "game/scripts/battle.rpy", line 17: expected 'name' not found.
+    show screen 1v1_hp_bars
+                ^
 
+File "game/scripts/battle.rpy", line 81: expected 'name' not found.
+    show screen 1v2_hp_bars
+                ^
+
+File "game/scripts/battle.rpy", line 182: expected 'name' not found.
+    show screen 1v3_hp_bars
+                ^
+
+File "game/scripts/battle.rpy", line 303: expected ':' not found.
+    label screen 1v1_hp_bars:
+                 ^
+
+File "game/scripts/battle.rpy", line 326: expected ':' not found.
+    label screen 1v2_hp_bars:
+                 ^
+
+File "game/scripts/battle.rpy", line 353: expected ':' not found.
+    label screen 1v3_hp_bars:
+                 ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Nov  6 23:04:59 2022
+Mon Nov  7 01:37:16 2022
