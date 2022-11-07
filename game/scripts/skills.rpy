@@ -34,10 +34,10 @@ label hero_skill:
     if skill == "Punch":
         call hero_skill_animation
         if d10 >= 8:
-            $ hero_attack_value = d4 + d6 + 20
+            $ hero_attack_value = d4 + d6
             $ target_hp -= hero_attack_value
         else:
-            $ target_hp -= d4 + 20
+            $ target_hp -= d4
     elif skill == "Super Duper Punch": 
         call hero_skill_animation          
         if d10 >= 9:    

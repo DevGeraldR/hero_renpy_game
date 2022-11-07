@@ -1,9 +1,9 @@
 # For background images
 
-image intro_bg = im.Scale("intro_bg.png", 1920, 1080)
-image fire_battle_bg = im.Scale("fire_battle_bg.png", 1920, 1080)
-image ice_battle_bg = im.Scale("ice_battle_bg.png", 1920, 1080)
-image forest_battle_bg = im.Scale("forest_battle_bg.png", 1920, 1080)
+image bg intro = im.Scale("intro_bg.png", 1920, 1080)
+image bg fire_battle = im.Scale("fire_battle_bg.png", 1920, 1080)
+image bg ice_battle = im.Scale("ice_battle_bg.png", 1920, 1080)
+image bg forest_battle = im.Scale("forest_battle_bg.png", 1920, 1080)
 
 # Animation when character is standing
 

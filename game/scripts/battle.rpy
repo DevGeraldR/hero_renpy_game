@@ -3,7 +3,7 @@
 label level_1:
 
     # For background
-    scene fire_battle_bg
+    scene bg fire_battle
 
     # Create the enemy
 
@@ -49,6 +49,11 @@ label level_1:
 
             "You win the combat encounter! Click to go to next level"
             $ level += 1
+
+            # To hide the life bars
+
+            hide screen hp_bars_1v1
+
             jump game_manager
         
         # Enemy Turn
@@ -59,6 +64,12 @@ label level_1:
     stop music
     hide hero stading with dissolve
     "You died..."
+
+
+    # To hide the life bars
+
+    hide screen hp_bars_1v1
+
     jump end_menu
 
 # For level 2 battle
@@ -66,7 +77,7 @@ label level_1:
 label level_2:
 
     # For background
-    scene ice_battle_bg
+    scene bg ice_battle
 
     # Create enemy's
 
@@ -133,6 +144,11 @@ label level_2:
 
                 "You win the combat encounter! Click to go to next level"
                 $ level += 1
+
+                # To hide the life bars
+
+                hide  screen hp_bars_1v2
+
                 jump game_manager
 
         # Reformat target
@@ -156,7 +172,13 @@ label level_2:
     # If failed display the end_menu
     stop music
     hide hero stading with dissolve
+
     "You died..."
+
+    # To hide the life bars
+
+    hide screen hp_bars_1v2
+
     jump end_menu
     
 # For level 3 battle
@@ -164,7 +186,7 @@ label level_2:
 label level_3:
 
     # For background
-    scene forest_battle_bg
+    scene bg forest_battle
 
     # Create enemy's
 
@@ -244,10 +266,14 @@ label level_3:
                 # To go to start menu
                 # For background and music
 
-                scene intro_bg
+                scene bg intro
                 play music "../audio/intro_music.ogg"
 
                 $ level = 1
+
+                # To hide the life bars
+
+                hide screen hp_bars_1v3
 
                 jump start_menu
 
@@ -276,6 +302,11 @@ label level_3:
     stop music
     hide hero stading with dissolve
     "You died..."
+
+    # To hide the life bars
+
+    hide screen hp_bars_1v3
+
     jump end_menu   
 
 # Show the level
@@ -301,74 +332,58 @@ label dice_roll:
 #For life bars
 
 screen hp_bars_1v1:
-    frame:
-        xpadding 10
-        ypadding 10
+    vbox:
         xalign 0.1
         yalign 0.05
         xmaximum 600
-        vbox:
-            spacing 20
-            text "You"
-            bar value hero.hp range hero.max_hp
+        spacing 20
+        text "You"
+        bar value hero.hp range hero.max_hp
     
-    frame:
-        xpadding 10
-        ypadding 10
+    vbox:
         xalign 0.9
         yalign 0.05
         xmaximum 600
-        vbox:
-            spacing 20
-            text "Fire Enemy"
-            bar value enemy_1.hp range enemy_1.max_hp
+        spacing 20
+        text "Fire Enemy"
+        bar value enemy_1.hp range enemy_1.max_hp
 
 screen hp_bars_1v2:
-    frame:
-        xpadding 10
-        ypadding 10
+    vbox:
         xalign 0.1
         yalign 0.05
         xmaximum 600
-        vbox:
-            spacing 20
-            text "You"
-            bar value hero.hp range hero.max_hp
+        spacing 20
+        text "You"
+        bar value hero.hp range hero.max_hp
+
     
-    frame:
-        xpadding 10
-        ypadding 10
+    vbox:
         xalign 0.9
         yalign 0.05
         xmaximum 600
-        vbox:
-            spacing 20
-            if enemy_2_1.alive: 
-                text "Ice Enemy 1"
-                bar value enemy_2_1.hp range enemy_2_1.max_hp
-            if enemy_2_2.alive: 
-                text "Ice Enemy 2"
-                bar value enemy_2_2.hp range enemy_2_2.max_hp
+        spacing 20
+        if enemy_2_1.alive: 
+            text "Ice Enemy 1"
+            bar value enemy_2_1.hp range enemy_2_1.max_hp
+        if enemy_2_2.alive: 
+            text "Ice Enemy 2"
+            bar value enemy_2_2.hp range enemy_2_2.max_hp
 
 screen hp_bars_1v3:
-    frame:
-        xpadding 10
-        ypadding 10
-        xalign 0.1
-        yalign 0.05
-        xmaximum 600
+
         vbox:
+            xalign 0.1
+            yalign 0.05
+            xmaximum 600
             spacing 20
             text "You"
             bar value hero.hp range hero.max_hp
     
-    frame:
-        xpadding 10
-        ypadding 10
-        xalign 0.9
-        yalign 0.05
-        xmaximum 600
         vbox:
+            xalign 0.9
+            yalign 0.05
+            xmaximum 600
             spacing 20
             if enemy_3_1.alive: 
                 text "Forest Enemy 1"
