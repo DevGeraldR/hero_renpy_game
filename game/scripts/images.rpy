@@ -5,6 +5,10 @@ image bg fire_battle = im.Scale("fire_battle_bg.png", 1920, 1080)
 image bg ice_battle = im.Scale("ice_battle_bg.png", 1920, 1080)
 image bg forest_battle = im.Scale("forest_battle_bg.png", 1920, 1080)
 
+# To show new skill
+
+image new_skill heal = im.Scale("../images/skill/heal_skill_idle.png", 190, 200)
+
 # Animation when character is standing
 
 image hero stand = "../images/hero/hero_stand.png"

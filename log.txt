@@ -1,22 +1,22 @@
-Mon Nov  7 15:03:15 2022
+Mon Nov  7 16:51:10 2022
 Linux-5.15.0-52-generic-x86_64-with-glibc2.35
 Ren'Py 8.0.3.22090809
  
 
-Bootstrap to the start of init.init took 0.18s
+Bootstrap to the start of init.init took 0.21s
 Early init took 0.00s
 Loader init took 0.02s
-Loading error handling took 0.08s
+Loading error handling took 0.09s
 Loading script took 0.45s
 Loading save slot metadata. took 0.02s
 Loading persistent took 0.00s
 Faled to initialize steam: OSError('/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/lib/py3-linux-x86_64/libsteam_api.so: cannot open shared object file: No such file or directory')
 Running init code took 0.11s
 Loading analysis data took 0.04s
-Analyze and compile ATL took 0.01s
+Analyze and compile ATL took 0.02s
 Index archives took 0.00s
 Backing up script files to '/home/gerald/.renpy/backups/HERO':
-Dump and make backups. took 0.14s
+Dump and make backups. took 0.15s
 Cleaning cache took 0.00s
 Making clean stores took 0.00s
 Initial gc. took 0.04s
@@ -29,8 +29,8 @@ Load screen analysis took 0.00s
 Analyze screens took 0.04s
 Save screen analysis took 0.05s
 Prepare screens took 0.20s
-Save pyanalysis. took 0.05s
-Save bytecode. took 0.08s
+Save pyanalysis. took 0.04s
+Save bytecode. took 0.09s
 Running _start took 0.00s
 Performance test:
 Interface start took 0.26s

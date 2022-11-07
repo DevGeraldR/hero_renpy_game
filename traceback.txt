@@ -1,26 +1,22 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While running game code:
-  File "game/scripts/battle.rpy", line 115, in script
+While processing the padding property of anonymous style:
+  File "game/scripts/battle.rpy", line 225, in script
     $ skill = renpy.call_screen("hero_skills")
-  File "game/scripts/battle.rpy", line 115, in <module>
+  File "game/scripts/battle.rpy", line 225, in <module>
     $ skill = renpy.call_screen("hero_skills")
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable skill does not exist.
+TypeError: 'int' object is not subscriptable
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/battle.rpy", line 115, in script
+  File "game/scripts/battle.rpy", line 225, in script
     $ skill = renpy.call_screen("hero_skills")
   File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
     renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
   File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
     exec(bytecode, globals, locals)
-  File "game/scripts/battle.rpy", line 115, in <module>
+  File "game/scripts/battle.rpy", line 225, in <module>
     $ skill = renpy.call_screen("hero_skills")
   File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
     rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
@@ -40,29 +36,20 @@ Full traceback:
     self.child.visit_all(callback, seen=None)
   File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
     d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 584, in visit_all
-    callback(self)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in <lambda>
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/behavior.py", line 968, in per_interact
-    if self.is_selected():
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/behavior.py", line 956, in is_selected
-    return is_selected(self.action)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/behavior.py", line 398, in is_selected
-    return any(is_selected(i) for i in action)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/behavior.py", line 398, in <genexpr>
-    return any(is_selected(i) for i in action)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/behavior.py", line 401, in is_selected
-    return action.get_selected()
-  File "renpy/common/00action_data.rpy", line 79, in get_selected
-    return __get_field(self.object, self.field, self.kind) == self.value
-  File "renpy/common/00action_data.rpy", line 39, in _m1_00action_data__get_field
-    raise NameError("The {} {} does not exist.".format(kind, name))
-NameError: The variable skill does not exist.
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 572, in visit_all
+    for d in self.visit():
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/layout.py", line 1254, in visit
+    self.style._visit_window(rv.append)
+  File "style.pyx", line 541, in renpy.style.StyleCore._visit_window
+  File "style.pyx", line 528, in renpy.style.StyleCore._get_unoffset
+  File "style.pyx", line 493, in renpy.style.StyleCore._get
+  File "style.pyx", line 710, in renpy.style.build_style
+  File "style.pyx", line 707, in renpy.style.build_style
+  File "gen3-static/style_functions.pyx", line 1417, in style_functions.padding_property
+  File "include/style_common.pxi", line 30, in style_functions.index_0
+TypeError: 'int' object is not subscriptable
 
 Linux-5.15.0-52-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.0.3.22090809
 HERO 1.0
-Mon Nov  7 14:53:10 2022
+Mon Nov  7 16:24:48 2022

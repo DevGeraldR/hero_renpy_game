@@ -166,7 +166,7 @@ label hero_skill_animation:
             show enemy_3_2 hit
         elif target == "enemy_3_3":
             show hero attack with dissolve:
-                xalign 0.9
+                xalign 1.2
                 yalign 0.75
             show enemy_3_3 hit
             
@@ -465,6 +465,6 @@ label enemy_attack_animation:
         play sound "../audio/attack_sound.ogg"
         
         show enemy_3_3 stand with dissolve:
-            xalign 0.9 
+            xalign 1.2 
             yalign 0.75
     return

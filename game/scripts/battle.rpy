@@ -49,7 +49,11 @@ label level_1:
 
             play sound "../audio/lvlup_sound.ogg"
 
-            "You win the combat encounter! Click to go to next level"
+            "You win the combat encounter"
+            show new_skill heal at truecenter
+            "New Skill Unlock: HEAL, Click to go to next level"
+            hide new_skill heal
+
             $ level += 1
 
             # To hide the life bars
@@ -117,17 +121,19 @@ label level_2:
         # Choosing of target is not available when healing
 
         if target == "self":
+
+            # Execute attack
+
             call hero_skill
+
         else:
             # Choose which one to attack
 
-            menu:
-                "Attack Enemy 1" if enemy_2_1.alive:
-                    $ target = "enemy_2_1"
-                    call hero_skill
-                "Attack Enemy 2" if enemy_2_2.alive: 
-                    $ target = "enemy_2_2"
-                    call hero_skill
+            $ target = renpy.call_screen("choose_enemy_1v2")
+            
+            # Execute attack
+
+            call hero_skill
 
             # If player win jump to game_manager to assign to the next level           
 
@@ -211,7 +217,7 @@ label level_3:
         xalign 0.8
         yalign 0.9
     show enemy_3_3 stand:
-        xalign 0.9
+        xalign 1.2
         yalign 0.75
 
     # For gameplay
@@ -225,22 +231,21 @@ label level_3:
         # Choosing of target is not available when healing
 
         if target == "self":
+
+            # Execute attack
+
             call hero_skill
         
         else:
 
             # Choose which one to attack
 
-            menu:
-                "Attack Enemy 1" if enemy_3_1.alive:
-                    $ target = "enemy_3_1"
-                    call hero_skill
-                "Attack Enemy 2" if enemy_3_2.alive: 
-                    $ target = "enemy_3_2"
-                    call hero_skill
-                "Attack Enemy 3" if enemy_3_3.alive: 
-                    $ target = "enemy_3_3"
-                    call hero_skill
+            $ target = renpy.call_screen("choose_enemy_1v3")
+            
+            # Execute attack
+
+            call hero_skill
+
 
             # If player win jump to game_manager to assign to the next level           
 
@@ -390,21 +395,71 @@ screen hp_bars_1v3:
 
 screen hero_skills:
 
-        hbox: 
-            xalign 0.1
-            yalign 0.9
-            spacing 20
-            imagebutton:
-                idle "../images/skill/punch_skill_idle.png"
-                hover "../images/skill/punch_skill_hover.png"
-                action Return("Punch") 
-            imagebutton:
-                idle "../images/skill/super_duper_punch_skill_idle.png"
-                hover "../images/skill/super_duper_punch_skill_hover.png"
-                action Return("Super Duper Punch")
-            if level >= 2:
+    frame:
+        xalign 0.1
+        yalign 0.9
+        xpadding 30
+        ypadding 30
+
+        vbox:
+            text "Select Skill" at truecenter size 30
+            null height 30
+            hbox: 
+                spacing 20
                 imagebutton:
-                    idle "../images/skill/heal_skill_idle.png"
-                    hover "../images/skill/heal_skill_hover.png"
-                    action [SetVariable("target", "self"), Return("Heal")]
-            
+                    idle "../images/skill/punch_skill_idle.png"
+                    hover "../images/skill/punch_skill_hover.png"
+                    action Return("Punch") 
+                imagebutton:
+                    idle "../images/skill/super_duper_punch_skill_idle.png"
+                    hover "../images/skill/super_duper_punch_skill_hover.png"
+                    action Return("Super Duper Punch")
+                if level >= 2:
+                    imagebutton:
+                        idle "../images/skill/heal_skill_idle.png"
+                        hover "../images/skill/heal_skill_hover.png"
+                        action [SetVariable("target", "self"), Return("Heal")]
+
+# Choose enemy button
+
+screen choose_enemy_1v2:
+
+    if enemy_2_1.alive:
+        imagebutton:
+            xalign 0.8
+            yalign 0.6
+            idle "../images/enemy_2/enemy_2_select_idle.png"
+            hover "../images/enemy_2/enemy_2_select_hover.png"
+            action Return("enemy_2_1") 
+    if enemy_2_2.alive: 
+        imagebutton:
+            xalign 0.8
+            yalign 0.9
+            idle "../images/enemy_2/enemy_2_select_idle.png"
+            hover "../images/enemy_2/enemy_2_select_hover.png"
+            action Return("enemy_2_2")
+
+screen choose_enemy_1v3:
+
+    if enemy_3_1.alive:
+        imagebutton:
+            xalign 0.8
+            yalign 0.6
+            idle "../images/enemy_3/enemy_3_select_idle.png"
+            hover "../images/enemy_3/enemy_3_select_hover.png"
+            action Return("enemy_3_1") 
+    if enemy_3_2.alive: 
+        imagebutton:
+            xalign 0.8
+            yalign 0.9
+            idle "../images/enemy_3/enemy_3_select_idle.png"
+            hover "../images/enemy_3/enemy_3_select_hover.png"
+            action Return("enemy_3_2") 
+
+    if enemy_3_3.alive: 
+        imagebutton:
+            xalign 1.2
+            yalign 0.75
+            idle "../images/enemy_3/enemy_3_select_idle.png"
+            hover "../images/enemy_3/enemy_3_select_hover.png"
+            action Return("enemy_3_3") 
