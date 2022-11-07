@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/images.rpy", line 10: invalid syntax
-    im.Scale("../images/skill/heal_skill_idle.png",, 190, 200)
-                                                    ^
+File "game/scripts/battle.rpy", line 142: expected statement.
+    continue
+            ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Nov  7 16:46:41 2022
+Mon Nov  7 20:58:44 2022
