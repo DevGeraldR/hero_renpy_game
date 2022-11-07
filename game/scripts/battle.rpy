@@ -11,10 +11,6 @@ label level_1:
     $ enemy_1.hp = enemy_1.max_hp
     $ enemy = "enemy_1"
 
-    # Show level intro and life bars
-
-    call show_level
-    show screen hp_bars_1v1
     
     # Show characters
 
@@ -25,18 +21,24 @@ label level_1:
         xalign 0.8
         yalign 0.7
 
+    # Show level intro and life bars
+
+    call show_level
+    show screen hp_bars_1v1
+
     # For gameplay
 
     while hero.hp > 0:
+        
         call dice_roll
-        menu:
-            "Punch":
-                $ skill = "Punch"
-                call hero_skill
-            "Super Duper Punch":
-                $ skill = "Super Duper Punch"
-                call hero_skill
 
+        # Hero turn
+        # To call the skill option
+
+        $ skill = renpy.call_screen("hero_skills")
+
+        call hero_skill
+        
         # If player win
         # Jump to the game_manager for assigning of next level     
 
@@ -71,6 +73,7 @@ label level_1:
     hide screen hp_bars_1v1
 
     jump end_menu
+
 
 # For level 2 battle
 
@@ -109,20 +112,13 @@ label level_2:
         
         call dice_roll
             
-        menu:
-            "Punch":
-                $ skill = "Punch"
-            "Super Duper Punch":
-                $ skill = "Super Duper Punch"
-            "Heal":
-                $ skill = "Heal"
-                $ target = "self"
-                call hero_skill
+        $ skill = renpy.call_screen("hero_skills")
         
         # Choosing of target is not available when healing
 
-        if target != "self":
-
+        if target == "self":
+            call hero_skill
+        else:
             # Choose which one to attack
 
             menu:
@@ -224,19 +220,14 @@ label level_3:
         
         call dice_roll
             
-        menu:
-            "Punch":
-                $ skill = "Punch"
-            "Super Duper Punch":
-                $ skill = "Super Duper Punch"
-            "Heal":
-                $ skill = "Heal"
-                $ target = "self"
-                call hero_skill
+        $ skill = renpy.call_screen("hero_skills")
         
         # Choosing of target is not available when healing
 
-        if target != "self":
+        if target == "self":
+            call hero_skill
+        
+        else:
 
             # Choose which one to attack
 
@@ -394,4 +385,26 @@ screen hp_bars_1v3:
             if enemy_3_3.alive: 
                 text "Forest Enemy 3"
                 bar value enemy_3_3.hp range enemy_3_3.max_hp
-    
+            
+# Skills button
+
+screen hero_skills:
+
+        hbox: 
+            xalign 0.1
+            yalign 0.9
+            spacing 20
+            imagebutton:
+                idle "../images/skill/punch_skill_idle.png"
+                hover "../images/skill/punch_skill_hover.png"
+                action Return("Punch") 
+            imagebutton:
+                idle "../images/skill/super_duper_punch_skill_idle.png"
+                hover "../images/skill/super_duper_punch_skill_hover.png"
+                action Return("Super Duper Punch")
+            if level >= 2:
+                imagebutton:
+                    idle "../images/skill/heal_skill_idle.png"
+                    hover "../images/skill/heal_skill_hover.png"
+                    action [SetVariable("target", "self"), Return("Heal")]
+            
