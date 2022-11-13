@@ -1,55 +1,76 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While processing the padding property of anonymous style:
-  File "game/scripts/battle.rpy", line 225, in script
-    $ skill = renpy.call_screen("hero_skills")
-  File "game/scripts/battle.rpy", line 225, in <module>
-    $ skill = renpy.call_screen("hero_skills")
-TypeError: 'int' object is not subscriptable
+While loading <renpy.display.im.Scale object at 0x7f00b1ecc970>:
+  File "game/scripts/levels.rpy", line 88, in script call
+    call show_level from _call_show_level_2
+  File "game/scripts/levels.rpy", line 114, in script
+    with dissolve
+OSError: Couldn't find file 'forest_battle_bg.png'.
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/scripts/battle.rpy", line 225, in script
-    $ skill = renpy.call_screen("hero_skills")
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/ast.py", line 1131, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/python.py", line 1061, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "game/scripts/battle.rpy", line 225, in <module>
-    $ skill = renpy.call_screen("hero_skills")
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/exports.py", line 3181, in call_screen
-    rv = renpy.ui.interact(mouse="screen", type="screen", roll_forward=roll_forward)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/ui.py", line 299, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
+  File "game/scripts/levels.rpy", line 88, in script call
+    call show_level from _call_show_level_2
+  File "game/scripts/levels.rpy", line 114, in script
+    with dissolve
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/ast.py", line 1658, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/exports.py", line 1657, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 2798, in do_with
+    return self.interact(trans_pause=True,
   File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 3377, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 3810, in interact_core
-    root_widget.visit_all(lambda i : i.per_interact())
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/screen.py", line 456, in visit_all
-    self.child.visit_all(callback, seen=None)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 582, in visit_all
-    d.visit_all(callback, seen)
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 572, in visit_all
-    for d in self.visit():
-  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/layout.py", line 1254, in visit
-    self.style._visit_window(rv.append)
-  File "style.pyx", line 541, in renpy.style.StyleCore._visit_window
-  File "style.pyx", line 528, in renpy.style.StyleCore._get_unoffset
-  File "style.pyx", line 493, in renpy.style.StyleCore._get
-  File "style.pyx", line 710, in renpy.style.build_style
-  File "style.pyx", line 707, in renpy.style.build_style
-  File "gen3-static/style_functions.pyx", line 1417, in style_functions.padding_property
-  File "include/style_common.pxi", line 30, in style_functions.index_0
-TypeError: 'int' object is not subscriptable
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 3912, in interact_core
+    self.draw_screen(root_widget, fullscreen_video, (not fullscreen_video) or video_frame_drawn)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/core.py", line 2602, in draw_screen
+    surftree = renpy.display.render.render_screen(
+  File "render.pyx", line 495, in renpy.display.render.render_screen
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/transition.py", line 378, in render
+    top = render(self.new_widget, width, height, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/layout.py", line 884, in render
+    surf = render(child, width, height, cst, cat)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/transform.py", line 747, in render
+    return transform_render(self, width, height, st, at)
+  File "accelerator.pyx", line 187, in renpy.display.accelerator.transform_render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/image.py", line 506, in render
+    return wrap_render(self.target, width, height, st, at)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/image.py", line 309, in wrap_render
+    rend = render(child, w, h, st, at)
+  File "render.pyx", line 170, in renpy.display.render.render
+  File "render.pyx", line 266, in renpy.display.render.render
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 627, in render
+    return cache.get(self, render=True)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 295, in get
+    surf = image.load()
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 890, in load
+    child = cache.get(self.image)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 295, in get
+    surf = image.load()
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 720, in load
+    raise e
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/display/im.py", line 685, in load
+    filelike = renpy.loader.load(self.filename)
+  File "/home/gerald/Desktop/Renpy/renpy-8.0.3-sdk/renpy/loader.py", line 820, in load
+    raise IOError("Couldn't find file '%s'." % name)
+OSError: Couldn't find file 'forest_battle_bg.png'.
 
 Linux-5.15.0-52-generic-x86_64-with-glibc2.35 x86_64
 Ren'Py 8.0.3.22090809
 HERO 1.0
-Mon Nov  7 16:24:48 2022
+Sun Nov 13 09:33:39 2022

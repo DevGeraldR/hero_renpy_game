@@ -5,7 +5,7 @@ label hero_skill:
     # If heal return after excecuting the skill. The rest after this is for attacking an opponent
     
     if skill == "Heal":
-        call hero_skill_animation from _call_hero_skill_animation
+        call hero_skill_animation
         if d10 + hero.hp > hero.max_hp:
             $ hero.hp = hero.max_hp
         else:
@@ -32,14 +32,14 @@ label hero_skill:
     # To calculates the damage & reduce the damage to the opponent
 
     if skill == "Punch":
-        call hero_skill_animation from _call_hero_skill_animation_1
+        call hero_skill_animation
         if d10 >= 8:
             $ hero_attack_value = d4 + d6
             $ target_hp -= hero_attack_value
         else:
             $ target_hp -= d4
     elif skill == "Super Duper Punch": 
-        call hero_skill_animation from _call_hero_skill_animation_2          
+        call hero_skill_animation          
         if d10 >= 9:    
             $ hero_attack_value = (d6 + d4)*2
             $ target_hp -= hero_attack_value
@@ -115,9 +115,9 @@ label hero_skill_animation:
     if level == 1:
 
         # Go to the target position
-        # zorder 100 to show image in front layer
-        show hero attack zorder 100 with dissolve:
-            xalign 0.7
+
+        show hero attack with dissolve:
+            xalign 0.8
             yalign 0.7
 
         # Show animation when target hit
@@ -145,28 +145,28 @@ label hero_skill_animation:
             return
         
         elif target == "enemy_2_1":
-            show hero attack zorder 100 with dissolve:
-                xalign 0.7
+            show hero attack with dissolve:
+                xalign 0.8
                 yalign 0.6
             show enemy_2_1 hit
         elif target == "enemy_2_2":
-            show hero attack zorder 100 with dissolve:
-                xalign 0.7
+            show hero attack with dissolve:
+                xalign 0.8
                 yalign 0.9
             show enemy_2_2 hit
         elif target == "enemy_3_1":
-            show hero attack zorder 100 with dissolve:
-                xalign 0.7
+            show hero attack with dissolve:
+                xalign 0.8
                 yalign 0.6
             show enemy_3_1 hit
         elif target == "enemy_3_2":
-            show hero attack zorder 100 with dissolve:
-                xalign 0.7
+            show hero attack with dissolve:
+                xalign 0.8
                 yalign 0.9
             show enemy_3_2 hit
         elif target == "enemy_3_3":
-            show hero attack zorder 100 with dissolve:
-                xalign 1.0
+            show hero attack with dissolve:
+                xalign 1.2
                 yalign 0.75
             show enemy_3_3 hit
             
@@ -177,8 +177,8 @@ label hero_skill_animation:
     play sound "../audio/attack_sound.ogg"
 
     # Go back to the standing position
-    # zorder 1 to give space for enemy attack
-    show hero stand zorder 1 with dissolve:
+
+    show hero stand with dissolve:
         xalign 0.2
         yalign 0.7
 
@@ -190,7 +190,7 @@ label enemy_attack:
 
     # For random values to decided in healing, damage and critical
 
-    call dice_roll from _call_dice_roll_3
+    call dice_roll
 
     # To calculates the damage & reduce the damage to the opponent
     # Calls enemy attack animation to display action in the screen
@@ -198,7 +198,7 @@ label enemy_attack:
     if level == 1:    
 
         if d20 >= 21:
-            call enemy_attack_animation from _call_enemy_attack_animation                                                                                
+            call enemy_attack_animation                                                                                
             $ hero.hp -= d10
 
         # When healing
@@ -223,7 +223,7 @@ label enemy_attack:
             show enemy_1 stand
 
         else:
-            call enemy_attack_animation from _call_enemy_attack_animation_1                                                                                
+            call enemy_attack_animation                                                                                
             $ hero.hp -= d4
 
     elif level >= 2:
@@ -231,7 +231,7 @@ label enemy_attack:
         if enemy == "enemy_2_1":      
 
             if d20 >= 19:
-                call enemy_attack_animation from _call_enemy_attack_animation_2                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
 
             elif d20 <=2:
@@ -253,13 +253,13 @@ label enemy_attack:
 
                 show enemy_2_1 stand
             else:
-                call enemy_attack_animation from _call_enemy_attack_animation_3                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d4
 
         elif enemy == "enemy_2_2":            
 
             if d20 >= 19:
-                call enemy_attack_animation from _call_enemy_attack_animation_4                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
 
@@ -280,13 +280,13 @@ label enemy_attack:
 
                 show enemy_2_2 stand
             else:
-                call enemy_attack_animation from _call_enemy_attack_animation_5                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d4
 
         elif enemy == "enemy_3_1":            
 
             if d20 >= 19:
-                call enemy_attack_animation from _call_enemy_attack_animation_6                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
 
@@ -307,13 +307,13 @@ label enemy_attack:
 
                 show enemy_3_1 stand
             else:
-                call enemy_attack_animation from _call_enemy_attack_animation_7                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d4
 
         elif enemy == "enemy_3_2":            
 
             if d20 >= 19:
-                call enemy_attack_animation from _call_enemy_attack_animation_8                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
 
@@ -334,13 +334,13 @@ label enemy_attack:
 
                 show enemy_3_2 stand
             else:
-                call enemy_attack_animation from _call_enemy_attack_animation_9                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d4
 
         elif enemy == "enemy_3_3":            
 
             if d20 >= 19:
-                call enemy_attack_animation from _call_enemy_attack_animation_10                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d10
             elif d20 <=2:
 
@@ -361,7 +361,7 @@ label enemy_attack:
 
                 show enemy_3_3 stand
             else:
-                call enemy_attack_animation from _call_enemy_attack_animation_11                                                                                
+                call enemy_attack_animation                                                                                
                 $ hero.hp -= d4
         
     return
@@ -372,12 +372,11 @@ label enemy_attack_animation:
 
     # Go to the hero location and execute attack
     # Go back after execution of attack
-    # zorder 10 to display image in front layer
 
     if enemy == "enemy_1":
 
-        show enemy_1 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_1 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -386,14 +385,14 @@ label enemy_attack_animation:
 
         play sound "../audio/attack_sound.ogg"
 
-        show enemy_1 stand zorder 10 with dissolve:
+        show enemy_1 stand with dissolve:
             xalign 0.8 
             yalign 0.7
 
     elif enemy == "enemy_2_1":
 
-        show enemy_2_1 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_2_1 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -402,14 +401,14 @@ label enemy_attack_animation:
 
         play sound "../audio/attack_sound.ogg"
 
-        show enemy_2_1 stand zorder 10 with dissolve:
+        show enemy_2_1 stand with dissolve:
             xalign 0.8 
             yalign 0.6
 
     elif enemy == "enemy_2_2":
 
-        show enemy_2_2 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_2_2 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -418,14 +417,14 @@ label enemy_attack_animation:
 
         play sound "../audio/attack_sound.ogg"
 
-        show enemy_2_2 stand zorder 10 with dissolve:
+        show enemy_2_2 stand with dissolve:
             xalign 0.8 
             yalign 0.9
 
     elif enemy == "enemy_3_1":
 
-        show enemy_3_1 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_3_1 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -440,8 +439,8 @@ label enemy_attack_animation:
 
     elif enemy == "enemy_3_2":
 
-        show enemy_3_2 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_3_2 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -455,8 +454,8 @@ label enemy_attack_animation:
             yalign 0.9
     elif enemy == "enemy_3_3":
 
-        show enemy_3_3 attack zorder 10 with dissolve:
-            xalign 0.3
+        show enemy_3_3 attack with dissolve:
+            xalign 0.2
             yalign 0.7
 
         show hero hit
@@ -466,6 +465,6 @@ label enemy_attack_animation:
         play sound "../audio/attack_sound.ogg"
         
         show enemy_3_3 stand with dissolve:
-            xalign 1.1 
+            xalign 1.2 
             yalign 0.75
     return

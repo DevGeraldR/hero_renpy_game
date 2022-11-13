@@ -23,7 +23,7 @@ label level_1:
 
     # Show level intro and life bars
 
-    call show_level from _call_show_level
+    call show_level
     show screen hp_bars_1v1
 
     # For gameplay
@@ -47,7 +47,7 @@ label level_2:
 
     # Show level intro and life bars
 
-    call show_level from _call_show_level_1
+    call show_level
     show screen hp_bars_1v2
 
     # Show characters
@@ -85,7 +85,7 @@ label level_3:
 
     # Show level intro and life bars
 
-    call show_level from _call_show_level_2
+    call show_level
     show screen hp_bars_1v3
 
     # Show characters
@@ -100,7 +100,7 @@ label level_3:
         xalign 0.8
         yalign 0.9
     show enemy_3_3 stand:
-        xalign 1.1
+        xalign 1.2
         yalign 0.75
 
     # For gameplay
@@ -272,7 +272,7 @@ screen choose_enemy_1v3:
 
     if enemy_3_3.alive: 
         imagebutton:
-            xalign 1.1
+            xalign 1.2
             yalign 0.75
             idle "../images/enemy_3/enemy_3_select_idle.png"
             hover "../images/enemy_3/enemy_3_select_hover.png"

@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/battle.rpy", line 142: expected statement.
-    continue
-            ^
+File "game/scripts/skills.rpy", line 120: expected 'comma or end of line' not found.
+    zorder 1
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Nov  7 20:58:44 2022
+Sun Nov 13 10:26:38 2022
