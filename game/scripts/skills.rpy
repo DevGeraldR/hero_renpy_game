@@ -182,6 +182,19 @@ label hero_skill_animation:
         xalign 0.2
         yalign 0.7
 
+    if(target == "enemy_1"):
+        show enemy_1 stand
+    elif(target == "enemy_2_1"):
+        show enemy_2_1 stand
+    elif(target == "enemy_2_2"):
+        show enemy_2_2 stand
+    elif(target == "enemy_3_1"):
+        show enemy_3_1 stand  
+    elif(target == "enemy_3_2"):
+        show enemy_3_2 stand  
+    elif(target == "enemy_3_3"):
+        show enemy_3_3 stand    
+
     return
     
 # For enemy attack
@@ -389,6 +402,8 @@ label enemy_attack_animation:
         show enemy_1 stand zorder 10 with dissolve:
             xalign 0.8 
             yalign 0.7
+        
+        show hero stand
 
     elif enemy == "enemy_2_1":
 
@@ -405,6 +420,8 @@ label enemy_attack_animation:
         show enemy_2_1 stand zorder 10 with dissolve:
             xalign 0.8 
             yalign 0.6
+        
+        show hero stand
 
     elif enemy == "enemy_2_2":
 
@@ -421,6 +438,8 @@ label enemy_attack_animation:
         show enemy_2_2 stand zorder 10 with dissolve:
             xalign 0.8 
             yalign 0.9
+        
+        show hero stand
 
     elif enemy == "enemy_3_1":
 
@@ -437,6 +456,8 @@ label enemy_attack_animation:
         show enemy_3_1 stand with dissolve:
             xalign 0.8 
             yalign 0.6
+        
+        show hero stand
 
     elif enemy == "enemy_3_2":
 
@@ -453,6 +474,9 @@ label enemy_attack_animation:
         show enemy_3_2 stand with dissolve:
             xalign 0.8 
             yalign 0.9
+        
+        show hero stand
+
     elif enemy == "enemy_3_3":
 
         show enemy_3_3 attack zorder 10 with dissolve:
@@ -468,4 +492,6 @@ label enemy_attack_animation:
         show enemy_3_3 stand with dissolve:
             xalign 1.1 
             yalign 0.75
+        
+        show hero stand
     return

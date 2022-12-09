@@ -9,11 +9,11 @@ label start:
     $ hero = character("Hero", 20, 20)
     $ hero.hp = hero.max_hp
     $ hero_attack_value = 0
-    $ level = 3
+    $ level = 1
 
     # For start menu. "is_from" is use for controling the game_manager
     menu start_menu: 
-        "Start":
+        "Start Battle":
             stop music
             jump game_manager
         "Reset level":
@@ -34,3 +34,4 @@ label start:
             jump start_menu
 
     return
+

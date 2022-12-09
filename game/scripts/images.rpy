@@ -11,13 +11,62 @@ image new_skill heal = im.Scale("../images/skill/heal_skill_idle.png", 190, 200)
 
 # Animation when character is standing
 
-image hero stand = "../images/hero/hero_stand.png"
-image enemy_1 stand = "../images/enemy_1/enemy_1_stand.png"
-image enemy_2_1 stand = "../images/enemy_2/enemy_2_stand.png"
-image enemy_2_2 stand = "../images/enemy_2/enemy_2_stand.png"
-image enemy_3_1 stand = "../images/enemy_3/enemy_3_stand.png"
-image enemy_3_2 stand = "../images/enemy_3/enemy_3_stand.png"
-image enemy_3_3 stand = "../images/enemy_3/enemy_3_stand.png"
+image hero stand :
+    "../images/hero/hero_stand_1.png"
+    pause 0.2
+    "../images/hero/hero_stand_2.png"
+    pause 0.2
+    "../images/hero/hero_stand_3.png"
+    pause 0.2
+    repeat 
+
+image enemy_1 stand :
+    "../images/enemy_1/enemy_1_stand_1.png"
+    pause 0.2
+    "../images/enemy_1/enemy_1_stand_2.png"
+    pause 0.2
+    repeat
+    
+image enemy_2_1 stand :
+    "../images/enemy_2/enemy_2_stand_1.png"
+    pause 0.2
+    "../images/enemy_2/enemy_2_stand_2.png"
+    pause 0.2
+    repeat
+
+image enemy_2_2 stand :
+    "../images/enemy_2/enemy_2_stand_1.png"
+    pause 0.2
+    "../images/enemy_2/enemy_2_stand_2.png"
+    pause 0.2
+    repeat
+
+image enemy_3_1 stand :
+    "../images/enemy_3/enemy_3_stand_1.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_2.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_3.png"
+    pause 0.2
+    repeat
+
+image enemy_3_2 stand :
+    "../images/enemy_3/enemy_3_stand_1.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_2.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_3.png"
+    pause 0.2
+    repeat
+
+image enemy_3_3 stand :
+    "../images/enemy_3/enemy_3_stand_1.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_2.png"
+    pause 0.2
+    "../images/enemy_3/enemy_3_stand_3.png"
+    pause 0.2
+    repeat
 
 # Animation when character is striking
 
@@ -61,37 +110,30 @@ image enemy_3_3 attack:
 image hero hit :
     "../images/hero/hero_hit.png"
     pause 0.1
-    "../images/hero/hero_stand.png"
 
 image enemy_1 hit :
     "../images/enemy_1/enemy_1_hit.png"
     pause 0.1
-    "../images/enemy_1/enemy_1_stand.png"
 
 image enemy_2_1 hit :
     "../images/enemy_2/enemy_2_hit.png"
     pause 0.1
-    "../images/enemy_2/enemy_2_stand.png"
 
 image enemy_2_2 hit :
     "../images/enemy_2/enemy_2_hit.png"
     pause 0.1
-    "../images/enemy_2/enemy_2_stand.png"
 
 image enemy_3_1 hit :
     "../images/enemy_3/enemy_3_hit.png"
     pause 0.1
-    "../images/enemy_3/enemy_3_stand.png"
 
 image enemy_3_2 hit :
     "../images/enemy_3/enemy_3_hit.png"
     pause 0.1
-    "../images/enemy_3/enemy_3_stand.png"
 
 image enemy_3_3 hit :
     "../images/enemy_3/enemy_3_hit.png"
     pause 0.1
-    "../images/enemy_3/enemy_3_stand.png"
 
 # Animation when healing
 

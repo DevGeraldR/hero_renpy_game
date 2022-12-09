@@ -2,9 +2,10 @@
 errors listed below, and try again.
 
 
-File "game/scripts/skills.rpy", line 120: expected 'comma or end of line' not found.
-    zorder 1
-    ^
+File "game/scripts/skills.rpy", line 185: reached end of line when expecting ':'.
+    if(enemy == "enemy_1") {
+            show enemy_1 stand
+        }
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Sun Nov 13 10:26:38 2022
+Fri Dec  9 18:24:32 2022
