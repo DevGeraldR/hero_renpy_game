@@ -23,16 +23,22 @@ label gameplay_1v1:
 
             play sound "../audio/lvlup_sound.ogg"
 
-            "You win the combat encounter"
-            show new_skill heal at truecenter
-            "New skill unlock: HEAL, Click to go to next level"
-            hide new_skill heal
-
-            $ level += 1
+            scene bg fire_battle
 
             # To hide the life bars
 
             hide screen hp_bars_1v1
+
+            show talk hero
+            voice "../audio/hero/h21.wav"
+            h "You win, good job your wise decision save a lot of people"
+            hide talk
+            show new_skill heal at truecenter
+            voice "../audio/hero/h22.wav"
+            h "Now we earned new skill. HEAL: it is use for additional life"
+            hide new_skill heal
+
+            $ level += 1
 
             jump game_manager
         
@@ -43,12 +49,17 @@ label gameplay_1v1:
     # If failed display the end_menu
     stop music
     hide hero stading with dissolve
-    "You died..."
 
+    scene bg fire_battle
 
     # To hide the life bars
 
     hide screen hp_bars_1v1
+    
+    show talk enemy_1
+    voice "../audio/e1/e1_3.wav"
+    e1 "You are too weak..."
+    hide talk
 
     jump end_menu
 
@@ -88,12 +99,17 @@ label gameplay_1v2:
 
                     play sound "../audio/lvlup_sound.ogg"
 
-                    "You win the combat encounter! Click to go to next level"
-                    $ level += 1
+                    scene bg ice_battle
 
                     # To hide the life bars
+    
+                    hide screen hp_bars_1v2
 
-                    hide  screen hp_bars_1v2
+                    show talk hero
+                    voice "../audio/hero/h23.wav"
+                    h "We win, good job with your dedication to save other people we restore ice world into its normal state"
+                    hide talk
+                    $ level += 1
 
                     jump game_manager
 
@@ -119,11 +135,14 @@ label gameplay_1v2:
         stop music
         hide hero stading with dissolve
 
-        "You died..."
+        scene bg ice_battle
 
         # To hide the life bars
 
         hide screen hp_bars_1v2
+
+        voice "../audio/e2/e2_4.wav"
+        e2 "HAHAHA! I told you, you can't and will never defeat us!"
 
         jump end_menu
 
@@ -165,8 +184,16 @@ label gameplay_1v3:
 
                     play sound "../audio/final_win_sound.ogg"
 
-                    "Congratulations you beat the game!"
+                    scene bg forest_battle
 
+                    # To hide the life bars
+
+                    hide screen hp_bars_1v3
+
+                    show talk hero
+                    voice "../audio/hero/h24.wav"
+                    h "Congratulations you save the world! The whole humanity is thanking you!"
+     
                     # To go to start menu
                     # For background and music
 
@@ -174,10 +201,6 @@ label gameplay_1v3:
                     play music "../audio/intro_music.ogg"
 
                     $ level = 1
-
-                    # To hide the life bars
-
-                    hide screen hp_bars_1v3
 
                     jump start_menu
 
@@ -205,10 +228,21 @@ label gameplay_1v3:
         # If failed display the end_menu
         stop music
         hide hero stading with dissolve
-        "You died..."
+
+        scene bg forest_battle
 
         # To hide the life bars
 
         hide screen hp_bars_1v3
+        
+        show talk enemy_3
+        voice "../audio/e3/e3_3.wav"
+        e3 "HAHAHA I thought that man can save humanity?"
+
+        show talk hero
+        voice "../audio/hero/h25.wav"
+        h "Just wait he will fight you again..."
+
+        hide talk
 
         jump end_menu   

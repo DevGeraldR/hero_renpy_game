@@ -1,9 +1,46 @@
+define e1 = Character("Fire Enemy")
+define e2 = Character("Ice Enemy")
+define e3 = Character("Forest Enemy")
+
 # For level 1 battle
 
 label level_1:
 
     # For background
     scene bg fire_battle
+
+    show talk hero
+    voice "../audio/hero/h5.wav"
+    h "Now we are at the fire world"
+
+    voice "../audio/hero/h6.wav"
+    h "Right now we have two skills both of them has their own damage"
+
+    voice "../audio/hero/h7.wav"
+    h "Be wise in choosing attack as this will cause other peoples life"
+
+    voice "../audio/hero/h8.wav"
+    h "Be alert at anytime enemy may appear"
+
+    show talk enemy_1
+    voice "../audio/e1/e1.wav"
+    e1 "A human, are you too excited to die that you came here?"
+
+    show talk hero
+    voice "../audio/hero/h9.wav"
+    h "We are here to defeat you!"
+
+    show talk enemy_1
+    voice "../audio/e1/e1_2.wav"
+    e1 "Do you think you can do that?"
+    
+    show talk hero
+    voice "../audio/hero/h10.wav"
+    h "Enough with the  talk let's fight!"
+
+    hide talk
+
+    window hide
 
     # Create the enemy
 
@@ -37,6 +74,34 @@ label level_2:
 
     # For background
     scene bg ice_battle
+
+    show talk hero
+    voice "../audio/hero/h11.wav"
+    h "Now we are at the ice world"
+
+    voice "../audio/hero/h12.wav"
+    h "Be prepared the enemy is much stronger in here"
+
+    voice "../audio/hero/h13.wav"
+    h "There they are we must defeat them to restore the ice world"
+
+    show talk enemy_2
+    voice "../audio/e2/e2_1.wav"
+    e2 "Is that a joke?"
+
+    voice "../audio/e2/e2_2.wav"
+    e2 "Do you really think that, that human can defeat us?"
+
+    show talk hero
+    voice "../audio/hero/h14.wav"
+    h "Ofcourse, with the right judgement, He can defeat you with no time..."
+
+    show talk enemy_2
+    voice "../audio/e2/e2_3.wav"
+    e2 "Lets begin then!!!"
+
+    hide talk
+    window hide
 
     # Create enemy's
 
@@ -72,6 +137,37 @@ label level_3:
 
     # For background
     scene bg forest_battle
+
+    show talk hero
+    voice "../audio/hero/h15.wav"
+    h "We are now in the forest world"
+
+    voice "../audio/hero/h16.wav"
+    h "The last world that needs our help"
+
+    voice "../audio/hero/h17.wav"
+    h "But here the enemy is far more stronger that thoose we fought"
+
+    voice "../audio/hero/h18.wav"
+    h "But we beleive in you! The whole humanity is on your hand!"
+
+    voice "../audio/hero/h19.wav"
+    h "You can defeat them!!!"
+
+    show talk enemy_3
+    voice "../audio/e3/e3_1.wav"
+    e3 "HA HA HA HA, don't understatement us those you fought are just a peice of trash"
+    
+    show talk hero
+    voice "../audio/hero/h20.wav"
+    h "Just like you all?"
+
+    show talk enemy_3
+    voice "../audio/e3/e3_2.wav"
+    e3 "WHAAAAAA!!!!! Come on lets begin I am to excited to kill you!!!"
+
+    hide talk
+    window hide
 
     # Create enemy's
 

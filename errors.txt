@@ -2,10 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/skills.rpy", line 185: reached end of line when expecting ':'.
-    if(enemy == "enemy_1") {
-            show enemy_1 stand
-        }
+File "game/scripts/levels.rpy", line 19: expected statement.
+    window.hide
+          ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Fri Dec  9 18:24:32 2022
+Sun Dec 11 22:27:30 2022

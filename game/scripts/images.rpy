@@ -1,6 +1,7 @@
 # For background images
 
 image bg intro = im.Scale("intro_bg.png", 1920, 1080)
+image bg intro2 = im.Scale("intro_2_bg.jpg", 1920, 1080)
 image bg fire_battle = im.Scale("fire_battle_bg.png", 1920, 1080)
 image bg ice_battle = im.Scale("ice_battle_bg.png", 1920, 1080)
 image bg forest_battle = im.Scale("forest_battle_bg.png", 1920, 1080)
@@ -144,3 +145,38 @@ image enemy_2_2 heal = "../images/enemy_2/enemy_2_heal.png"
 image enemy_3_1 heal =  "../images/enemy_3/enemy_3_heal.png"
 image enemy_3_2 heal = "../images/enemy_3/enemy_3_heal.png"
 image enemy_3_3 heal = "../images/enemy_3/enemy_3_heal.png"
+
+# For talk animation
+
+image talk hero :
+    "../images/hero/hero_talk_1.png" 
+    pause 0.1
+    "../images/hero/hero_talk_2.png" 
+    pause 0.1
+    "../images/hero/hero_talk_3.png" 
+    pause 0.1
+    repeat
+
+image talk enemy_1:
+    "../images/enemy_1/enemy_1_talk.png" 
+    pause 0.1
+    "../images/enemy_1/enemy_1_talk_2.png" 
+    pause 0.1
+    "../images/enemy_1/enemy_1_talk_3.png" 
+    pause 0.1
+    repeat
+
+image talk enemy_2:
+    "../images/enemy_2/enemy_2_talk.png" 
+    pause 0.2
+    "../images/enemy_2/enemy_2_talk_2.png" 
+    pause 0.2
+    repeat
+
+image talk enemy_3:
+    "../images/enemy_3/enemy_3_talk.png" 
+    pause 0.2
+    "../images/enemy_3/enemy_3_talk_2.png" 
+    pause 0.2
+    repeat
+
