@@ -140,10 +140,10 @@ label gameplay_1v2:
         # To hide the life bars
 
         hide screen hp_bars_1v2
-
+        show talk enemy_2
         voice "../audio/e2/e2_4.wav"
         e2 "HAHAHA! I told you, you can't and will never defeat us!"
-
+        hide talk
         jump end_menu
 
 # For 1v3 fight

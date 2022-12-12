@@ -58,9 +58,7 @@ label level_1:
         xalign 0.8
         yalign 0.7
 
-    # Show level intro and life bars
-
-    call show_level from _call_show_level
+    # Show life bars
     show screen hp_bars_1v1
 
     # For gameplay
@@ -110,9 +108,8 @@ label level_2:
     $ enemy_2_1.hp = enemy_2_1.max_hp
     $ enemy_2_2.hp = enemy_2_2.max_hp
 
-    # Show level intro and life bars
+    # Show life bars
 
-    call show_level from _call_show_level_1
     show screen hp_bars_1v2
 
     # Show characters
@@ -179,9 +176,7 @@ label level_3:
     $ enemy_3_3.hp = enemy_3_3.max_hp
 
 
-    # Show level intro and life bars
-
-    call show_level from _call_show_level_2
+    # Show life bars
     show screen hp_bars_1v3
 
     # Show characters
@@ -202,16 +197,6 @@ label level_3:
     # For gameplay
 
     jump gameplay_1v3
-
-# Show the level
-
-label show_level:
-    show text "Level [level]" at truecenter
-    with dissolve
-    pause 1
-    hide text
-    with dissolve
-    return
 
 # Random Number Generator
 # For critical hit and other action that happens unintentional

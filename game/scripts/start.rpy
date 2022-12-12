@@ -4,7 +4,7 @@ label start:
 
     # For background image and music
 
-    scene bg intro2
+    scene bg intro
 
     play music "../audio/intro_music.ogg"
 
@@ -29,7 +29,7 @@ label start:
     $ hero = character("Hero", 20, 20)
     $ hero.hp = hero.max_hp
     $ hero_attack_value = 0
-    $ level = 2
+    $ level = 1
 
     # For start menu. "is_from" is use for controling the game_manager
     menu start_menu: 
@@ -40,6 +40,9 @@ label start:
             $ level = 1
             "Level Reseted"
             jump start_menu
+        "Credits":
+            jump credits
+            
 
     # For end menu. call in every end of each level
 
