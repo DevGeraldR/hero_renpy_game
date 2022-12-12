@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/scripts/credits.rpy", line 2: end of line expected.
-    text "Saitama Background (One punch man) are from Cool HD Wallpaper\nStart Background is created by Cindy Taylor\nFire Background is from Hero Battle\nIce Background is from RPG Maker MV\nForest XY Battle Background by worldslayer608\nMusic and Audio are from Habitacle github repository\nVoice over are made in FakeYou. Deep Fake Text to Speech.\nSkills images are from CompassStudio" color "#f00" at truecenter with dissolve
-                                                                                                                                                                                                                                                                                                                                                                                                      ^
+File "game/scripts/levels.rpy", line 290: Line is indented, but the preceding null statement does not expect a block. Please check this line's indentation.
+    spacing 20
+    ^
 
 Ren'Py Version: Ren'Py 8.0.3.22090809
-Mon Dec 12 14:13:44 2022
+Mon Dec 12 16:22:54 2022

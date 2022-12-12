@@ -280,13 +280,13 @@ screen hero_skills:
 
     frame:
         xalign 0.1
-        yalign 0.9
+        yalign 0.96
         xpadding 30
-        ypadding 30
+        ypadding 15
 
         vbox:
             text "Select Skill" at truecenter size 30
-            null height 30
+            null height 5
             hbox: 
                 spacing 20
                 imagebutton:
